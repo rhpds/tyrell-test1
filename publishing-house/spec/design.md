@@ -48,17 +48,17 @@ Advanced
 
 **Learner view:** A running OpenShift 4.22 cluster is provisioned and accessible. Participants log in to the OpenShift web console with cluster-admin credentials. OperatorHub is available and connected to the Red Hat operator catalog.
 
-**Automation needed:** TBD — confirmed in infrastructure phase
+**Automation needed:** No — a running OpenShift 4.22 cluster with OperatorHub connected to the Red Hat catalog is pre-provisioned; no per-user resource provisioning required beyond cluster access.
 
 ## Infrastructure Requirements
 
-- **Cloud provider:** TBD — confirmed in infrastructure phase
-- **Cluster type:** TBD — confirmed in infrastructure phase
-- **OCP version:** TBD — confirmed in infrastructure phase
-- **Topology:** TBD — confirmed in infrastructure phase
-- **Sizing:** TBD — confirmed in infrastructure phase
-- **Automation approach:** TBD — confirmed in infrastructure phase
-- **AI/MaaS:** TBD — confirmed in infrastructure phase
-- **External services:** TBD — confirmed in infrastructure phase
-- **AAP version:** TBD — confirmed in infrastructure phase
-- **Non-GA products:** TBD — confirmed in infrastructure phase
+- **Cloud provider:** CNV
+- **Cluster type:** SNO (Single Node OpenShift)
+- **OCP version:** 4.22
+- **Topology:** Per-student
+- **Sizing:** 1 control plane node (32 vCPU, 128 GB RAM) — SNO, no separate workers
+- **Automation approach:** OLM (Operator Lifecycle Manager) — operator installed by participant via OperatorHub
+- **AI/MaaS:** None
+- **External services:** registry.redhat.io, registry.access.redhat.com
+- **AAP version:** N/A
+- **Non-GA products:** None (all products are GA)
