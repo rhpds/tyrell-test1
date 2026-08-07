@@ -75,11 +75,26 @@ approval_checklist:
   content:
     prerequisites_verifiable: false
     assessment_strategy: ""
-    catalog_gap: ""
+    catalog_gap: "No existing catalog items directly cover RHBK operator installation via OperatorHub as a primary learning objective. Existing labs that involve RHBK treat it as a supporting identity component within broader platform engineering or DevSecOps workshops — none teach the operator installation and health verification lifecycle as a standalone, focused exercise."
     design_overview: ""
     module_summaries: []
-    rcars_overlap_pct: null
-    rcars_top_matches: []
+    rcars_overlap_pct: 44
+    rcars_top_matches:
+      - title: "Platform Engineering Roadshow"
+        ci_name: "published.platform-engineering-workshop.prod"
+        url: "https://catalog.demo.redhat.com/catalog?item=published.platform-engineering-workshop.prod"
+        relevance_score: 44
+        why_it_fits: "Includes RHBK as an integrated component for OpenID Connect authentication targeting platform engineers on OpenShift, but RHBK is a supporting identity provider rather than the primary focus of operator installation."
+      - title: "Service Enablement: App Platform Software Factory"
+        ci_name: "openshift-cnv.app-platform-factory-cnv.prod"
+        url: "https://catalog.demo.redhat.com/catalog?item=openshift-cnv.app-platform-factory-cnv.prod"
+        relevance_score: 43
+        why_it_fits: "Targets platform engineers and includes RHBK with inferred OperatorHub objectives, but operator installation is a peripheral activity within a broader 480-minute Software Factory context."
+      - title: "LB1464: Unifying DevSecOps: Secure, Standardized Application Delivery Across Containers (CNV)"
+        ci_name: "summit-2026.lb1464-unified-devsecops-delivery-cnv.prod"
+        url: "https://catalog.demo.redhat.com/catalog?item=summit-2026.lb1464-unified-devsecops-delivery-cnv.prod"
+        relevance_score: 39
+        why_it_fits: "Includes RHBK as an OIDC identity component for platform engineers on OpenShift, but operator installation via OperatorHub is not a stated objective."
     rejections: []
 
   infra:
