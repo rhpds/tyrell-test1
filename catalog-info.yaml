@@ -11,21 +11,24 @@ metadata:
     ph.rhdp.io/owner: treddy@redhat.com
     backstage.io/techdocs-ref: dir:.
     github.com/project-slug: rhpds/tyrell-test1
-    ph.rhdp.io/created-at: 2026-08-07T04:44:05.917Z
+    ph.rhdp.io/created-at: 2026-08-07 04:44:05.917000+00:00
   tags:
-    - publishing-house
-    - lab
-    - rhdp-published
+  - publishing-house
+  - lab
+  - rhdp-published
   links:
-    - url: https://github.com/rhpds/tyrell-test1
-      title: Repository
-      icon: github
-    - url: https://devspaces.apps.ocpv-infra02.wdc07.infra.demo.redhat.com#https://github.com/rhpds/tyrell-test1
-      title: Open in DevSpaces
-      icon: catalog
-    - url: https://central-api-publishing-house.apps.ocpv-infra02.wdc07.infra.demo.redhat.com
-      title: Central
-      icon: dashboard
+  - url: https://github.com/rhpds/tyrell-test1
+    title: Repository
+    icon: github
+  - url: https://devspaces.apps.ocpv-infra02.wdc07.infra.demo.redhat.com#https://github.com/rhpds/tyrell-test1
+    title: Open in DevSpaces
+    icon: catalog
+  - url: https://central-api-publishing-house.apps.ocpv-infra02.wdc07.infra.demo.redhat.com
+    title: Central
+    icon: dashboard
+  - url: https://redhat.atlassian.net/browse/RHDPCD-782
+    title: Jira Epic
+    icon: dashboard
 spec:
   type: content
   lifecycle: experimental

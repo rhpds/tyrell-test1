@@ -15,8 +15,8 @@ project:
   intake_type: "new"
   description: "Install RHBK on Openshift"
   # content_reviewer_email and infra_reviewer_email are assigned by the RHDP team — not set by the author
-  jira_ticket: ""
-  workflow_id: ""
+  jira_ticket: "RHDPCD-782"
+  workflow_id: "a02d767b-ed16-4229-a0f8-5b89dc3f3a3d"
 
 spec:
   title: ""
