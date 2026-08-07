@@ -76,8 +76,10 @@ approval_checklist:
     prerequisites_verifiable: false
     assessment_strategy: ""
     catalog_gap: "No existing catalog items directly cover RHBK operator installation via OperatorHub as a primary learning objective. Existing labs that involve RHBK treat it as a supporting identity component within broader platform engineering or DevSecOps workshops — none teach the operator installation and health verification lifecycle as a standalone, focused exercise."
-    design_overview: ""
-    module_summaries: []
+    design_overview: "This 15-minute lab teaches advanced platform engineers to install the Red Hat build of Keycloak operator on an OpenShift 4.22 cluster using OperatorHub. Participants navigate the OpenShift web console to locate, install, and verify the RHBK operator, gaining hands-on experience with the operator lifecycle management workflow for enterprise identity and access management."
+    module_summaries:
+      - title: "Installing the Red Hat build of Keycloak Operator"
+        overview: "Participants navigate to OperatorHub in the OpenShift web console, install the RHBK operator from the Red Hat catalog, and verify the operator pod is running and the install status shows Succeeded."
     rcars_overlap_pct: 44
     rcars_top_matches:
       - title: "Platform Engineering Roadshow"
