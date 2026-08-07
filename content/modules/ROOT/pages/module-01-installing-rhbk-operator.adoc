@@ -94,7 +94,7 @@ Wait for that state before you create any Keycloak instances.
 
 . Watch the *Status* column.
 Wait until it changes to *Succeeded*.
-This typically takes one to three minutes.
+This typically takes 1 to 3 minutes.
 
 . In the left navigation, click *Workloads* → *Pods*.
 
@@ -169,7 +169,7 @@ Confirm you met each objective before moving on:
 
 == Key Takeaways
 
-* OperatorHub provides a curated catalog of Red Hat-supported operators you can install directly from the OpenShift web console — no manual image pulls or YAML subscription files required.
+* OperatorHub provides a curated catalog of Red Hat-supported operators you can install directly from the OpenShift web console with no manual image pulls or YAML subscription files required.
 * The RHBK operator manages the full lifecycle of Keycloak instances on OpenShift, including installation, upgrades, and configuration drift correction.
 * A `Succeeded` CSV phase and a `Running` operator pod together confirm the operator is healthy and ready to manage Keycloak instances.
 
