@@ -1,0 +1,180 @@
+= Installing the Red Hat build of Keycloak Operator
+:ocp_version: 4.22
+
+[NOTE]
+====
+*Estimated time:* 15 minutes +
+*Difficulty:* Advanced
+====
+
+Red Hat build of Keycloak (RHBK) is the enterprise-supported identity and access management solution built on the upstream Keycloak project.
+In this module you install the RHBK operator on your OpenShift {ocp_version} cluster through OperatorHub and confirm the operator is healthy and ready to manage Keycloak instances.
+
+== Learning Objectives
+
+By the end of this module you will be able to:
+
+* Install the Red Hat build of Keycloak operator on an OpenShift cluster using OperatorHub
+* Verify the operator deployment is healthy and ready to manage Keycloak instances
+
+== Exercise 1: Navigate to OperatorHub and Locate the RHBK Operator
+
+OperatorHub is the built-in catalog inside the OpenShift web console.
+It gives you direct access to Red Hat-supported operators so you can install and manage them through the Operator Lifecycle Manager (OLM) without pulling images or writing subscriptions by hand.
+Start here to find the RHBK operator before you trigger the install.
+
+. Open the OpenShift web console at {openshift_console_url} and log in with your cluster-admin credentials.
+
+. In the left navigation panel, expand *Operators* and click *OperatorHub*.
+
+. In the search field, type `Red Hat build of Keycloak` and press Enter.
+
+. In the results, find the *Red Hat build of Keycloak* tile that carries the Red Hat badge and click it.
++
+[NOTE]
+====
+Select the tile from the *Red Hat* catalog source, not a community or marketplace alternative.
+The Red Hat badge confirms you are installing the supported, enterprise-grade operator.
+====
+
+. Read through the operator description, supported versions, and capabilities on the detail panel.
+
+=== Verify
+
+Before you continue, confirm that the operator detail panel is open and the *Install* button is visible.
+The panel should display the Red Hat badge and a version number on the *stable* channel.
+If you see a community operator or no badge, close the panel and search again.
+
+== Exercise 2: Install the RHBK Operator
+
+With the operator located, you run through the installation wizard.
+OLM handles the rest: it creates the subscription, pulls the operator image, and starts the operator pod.
+
+. Click *Install* on the operator detail panel.
+
+. On the *Install Operator* page, review and set the following options:
++
+[cols="1,2",options="header"]
+|===
+| Setting | Recommended value
+
+| Update channel
+| Select the latest stable channel available (for example, `stable-v26`)
+
+| Installation mode
+| *A specific namespace on the cluster* (recommended for production workloads)
+
+| Installed namespace
+| Create a new namespace named `rhbk-operator` or select an existing one
+
+| Update approval
+| *Automatic*
+|===
+
+. Click *Install* to begin the installation.
+
+=== Verify
+
+After clicking *Install*, the console shows an *Installing Operator* screen with a progress indicator.
+This confirms the subscription object was created and OLM started pulling the operator image.
+You do not need to wait on this screen — continue to Exercise 3 while the installation runs in the background.
+
+== Exercise 3: Confirm the Operator is Running and Ready
+
+Operator installation is asynchronous.
+OLM pulls the image, starts the operator pod, and registers the operator's custom resource definitions.
+The install is complete only when the operator reaches a `Succeeded` status.
+Wait for that state before you create any Keycloak instances.
+
+. In the left navigation, click *Operators* → *Installed Operators*.
+
+. In the namespace selector at the top of the page, select the namespace where you installed the operator (for example, `rhbk-operator`).
+
+. Locate the *Red Hat build of Keycloak* entry in the list.
+
+. Watch the *Status* column.
+Wait until it changes to *Succeeded*.
+This typically takes one to three minutes.
+
+. In the left navigation, click *Workloads* → *Pods*.
+
+. Confirm the correct namespace is selected in the namespace selector.
+
+. Find the operator pod — its name begins with `rhbk-operator` — and confirm its status is *Running*.
+
+=== Verify
+
+Use the OpenShift CLI to confirm the operator status from the terminal.
+
+Check the ClusterServiceVersion (CSV) phase:
+
+[source,bash,role="execute"]
+----
+oc get csv -n rhbk-operator
+----
+
+Expected output (version may differ):
+
+----
+NAME                    DISPLAY                          VERSION   REPLACES   PHASE
+rhbk-operator.v26.x.x  Red Hat build of Keycloak        26.x.x               Succeeded
+----
+
+The `PHASE` column must show `Succeeded` before you treat the operator as ready.
+
+Check that the operator pod is running:
+
+[source,bash,role="execute"]
+----
+oc get pods -n rhbk-operator
+----
+
+Expected output:
+
+----
+NAME                             READY   STATUS    RESTARTS   AGE
+rhbk-operator-<hash>             1/1     Running   0          2m
+----
+
+[NOTE]
+====
+If you installed in *All namespaces* mode, the operator pod runs in `openshift-operators`.
+Adjust the namespace flag in both commands accordingly:
+
+[source,bash,role="execute"]
+----
+oc get csv -n openshift-operators | grep rhbk
+----
+
+[source,bash,role="execute"]
+----
+oc get pods -n openshift-operators | grep rhbk
+----
+====
+
+== Learning Outcomes Checkpoint
+
+Confirm you met each objective before moving on:
+
+[cols="1,3",options="header"]
+|===
+| Objective | How you met it
+
+| Install the Red Hat build of Keycloak operator using OperatorHub
+| You navigated to OperatorHub, selected the RHBK tile from the Red Hat catalog, configured the installation options, and triggered the OLM subscription.
+
+| Verify the operator deployment is healthy and ready
+| You confirmed the CSV phase shows `Succeeded` and the operator pod shows `Running` in the target namespace.
+|===
+
+== Key Takeaways
+
+* OperatorHub provides a curated catalog of Red Hat-supported operators you can install directly from the OpenShift web console — no manual image pulls or YAML subscription files required.
+* The RHBK operator manages the full lifecycle of Keycloak instances on OpenShift, including installation, upgrades, and configuration drift correction.
+* A `Succeeded` CSV phase and a `Running` operator pod together confirm the operator is healthy and ready to manage Keycloak instances.
+
+== Conclusion
+
+The Red Hat build of Keycloak operator is now installed and running on your OpenShift {ocp_version} cluster.
+OLM registered the operator's custom resource definitions, which means the cluster now understands `Keycloak` and `KeycloakRealmImport` resources.
+Your next step is to create a `Keycloak` custom resource to deploy an actual Keycloak instance managed by this operator.
