@@ -1,2 +1,3 @@
 * xref:index.adoc[Course Overview]
 * xref:module-01-installing-rhbk-operator.adoc[Installing the Red Hat build of Keycloak Operator]
+* xref:conclusion.adoc[Conclusion and Next Steps]
