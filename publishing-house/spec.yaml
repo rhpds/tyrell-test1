@@ -65,6 +65,8 @@ spec:
   duration_hours: 0.25
   audience: "advanced"               # beginner | intermediate | advanced
 
+showroom_content_status: complete
+
 compliance:
   last_hard_check: null
   hard_result: null
