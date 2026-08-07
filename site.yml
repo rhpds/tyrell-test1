@@ -1,6 +1,6 @@
 ---
 site:
-  title: My Project
+  title: Installing Red Hat build of Keycloak Operator on OpenShift
   url: https://github.com/rhpds/my-project
   start_page: modules::index.adoc
 
