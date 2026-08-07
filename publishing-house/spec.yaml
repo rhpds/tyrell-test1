@@ -21,7 +21,11 @@ project:
 spec:
   title: "Installing Red Hat build of Keycloak Operator on OpenShift"
   learning_objectives: []
-  modules: []              # [{id, title, duration_min}] — written by intake Phase 4; id is stable (e.g. module-01)
+  modules:
+  - id: module-01
+    title: "Installing the Red Hat build of Keycloak Operator"
+    duration_min: 15
+    status: not_started
   environment:
     platform: ""               # ocp | rhel-vms — determines which sizing fields apply
     topology: ""               # shared-cluster | per-student | cnv-pool
@@ -69,7 +73,7 @@ tracking:
 approval_checklist:
 
   content:
-    prerequisites_verifiable: null
+    prerequisites_verifiable: false
     assessment_strategy: ""
     catalog_gap: ""
     design_overview: ""
