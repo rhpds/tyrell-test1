@@ -1,0 +1,38 @@
+= Conclusion and Next Steps
+:ocp_version: 4.22
+
+You have reached the end of this lab.
+Take a moment to review what you accomplished and where to go from here.
+
+== What You've Learned
+
+This lab gave you hands-on experience with two foundational tasks for running Red Hat build of Keycloak on OpenShift:
+
+* *Install the Red Hat build of Keycloak operator using OperatorHub* — You located the RHBK operator in the OpenShift {ocp_version} OperatorHub catalog, selected the Red Hat-certified tile, configured the installation namespace and update channel through the OLM wizard, and triggered the subscription.
+
+* *Verify the operator deployment is healthy and ready* — You confirmed the ClusterServiceVersion reached the `Succeeded` phase and the operator pod showed a `Running` status, validating that OLM registered the RHBK custom resource definitions on the cluster.
+
+== Next Steps
+
+With the RHBK operator installed, your cluster is ready for the next phase of your identity and access management deployment.
+Consider exploring the following:
+
+* *Deploy a Keycloak instance* — Create a `Keycloak` custom resource in your target namespace to spin up a managed Keycloak instance.
+  The operator handles pod scheduling, service creation, and configuration drift correction automatically.
+
+* *Configure a realm* — Use the `KeycloakRealmImport` custom resource to import realm configurations, clients, and users into your Keycloak instance without logging in to the Keycloak admin console.
+
+* *Integrate with OpenShift OAuth* — Connect your Keycloak instance to the OpenShift cluster's OAuth server so that cluster users can authenticate through Keycloak.
+
+* *Review the operator upgrade strategy* — If you set update approval to *Automatic* during installation, the operator upgrades itself when a new version is published to the subscription channel.
+  For production clusters, consider switching to *Manual* approval so you can validate upgrades before they apply.
+
+== References
+
+The following resources support the topics covered in this lab:
+
+* https://access.redhat.com/documentation/en-us/red_hat_build_of_keycloak[Red Hat build of Keycloak — Product Documentation]
+* https://access.redhat.com/documentation/en-us/red_hat_build_of_keycloak/26.0/html/operator_guide/[Red Hat build of Keycloak Operator Guide]
+* https://docs.openshift.com/container-platform/{ocp_version}/operators/understanding/olm/olm-understanding-olm.html[Understanding Operator Lifecycle Manager — OpenShift Container Platform {ocp_version}]
+* https://docs.openshift.com/container-platform/{ocp_version}/operators/admin/olm-adding-operators-to-cluster.html[Adding Operators to a Cluster — OpenShift Container Platform {ocp_version}]
+* https://docs.openshift.com/container-platform/{ocp_version}/web_console/web-console.html[Accessing the OpenShift Web Console — OpenShift Container Platform {ocp_version}]
