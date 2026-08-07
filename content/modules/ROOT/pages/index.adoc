@@ -1,5 +1,4 @@
 = Installing Red Hat build of Keycloak Operator on OpenShift
-:ocp_version: 4.22
 
 [NOTE]
 ====
@@ -12,9 +11,9 @@ Red Hat build of Keycloak (RHBK) is the enterprise-supported identity and access
 This lab walks you through installing the RHBK operator on an OpenShift {ocp_version} cluster using OperatorHub, then verifying the operator is healthy and ready to manage Keycloak instances.
 
 Platform engineers working with OpenShift often need to add identity and access management capabilities to their clusters.
-RHBK, installed through the Operator Lifecycle Manager, gives you a production-ready, lifecycle-managed Keycloak deployment with automatic updates and configuration drift correction — all without writing subscription YAML by hand.
+RHBK, installed through the Operator Lifecycle Manager, gives you a production-ready, lifecycle-managed Keycloak deployment with automatic updates and configuration drift correction, all without writing subscription YAML by hand.
 
-== What You Will Learn
+== What you will learn
 
 By the end of this lab you will be able to:
 
@@ -29,10 +28,8 @@ Before you begin, confirm that you have the following:
 * Familiarity with OperatorHub and OpenShift operator lifecycle management (OLM)
 * A web browser pointed at your cluster's web console
 
-== Lab Modules
+== Lab modules
 
-This lab contains one module:
+This lab contains 1 module:
 
 * xref:module-01-installing-rhbk-operator.adoc[Installing the Red Hat build of Keycloak Operator] (~15 min)
-
-include::ROOT:nav.adoc[]
